@@ -27,8 +27,8 @@
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
+          <button class="btn btn-success" type="submit">
+           Search
           </button>
         </div>
       </div>
@@ -62,7 +62,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              
               <p>
                 Dashboard
               </p>
@@ -72,7 +72,7 @@
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+             
               <p>
                 Category
               </p>
@@ -81,21 +81,14 @@
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+             
               <p>
                 Posts
               </p>
             </a>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="{{ route('logout') }}" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Logout
-              </p>
-            </a>
-          </li>
+        
          
          
         </ul>
@@ -118,12 +111,12 @@
         <div class="card-header">
           <h3 class="card-title">Title</h3>
 
-          <div class="card-tools">
+          {{-- <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
               <i class="fas fa-minus"></i></button>
             <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
               <i class="fas fa-times"></i></button>
-          </div>
+          </div> --}}
         </div>
         <div class="card-body">
           Start creating your amazing application!
