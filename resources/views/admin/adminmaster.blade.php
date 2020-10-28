@@ -9,6 +9,8 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
  <!-- Styles -->
  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
  <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
@@ -16,7 +18,7 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
-<div class="wrapper">
+<div class="wrapper" id="app">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -111,16 +113,12 @@
         <div class="card-header">
           <h3 class="card-title">Title</h3>
 
-          {{-- <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div> --}}
+          
         </div>
         <div class="card-body">
-          Start creating your amazing application!
+          <admin-main></admin-main>
         </div>
+        
         <!-- /.card-body -->
         <div class="card-footer">
           Footer
@@ -129,8 +127,10 @@
       </div>
       <!-- /.card -->
 
+
     </section>
     <!-- /.content -->
+    
   </div>
   <!-- /.content-wrapper -->
 
