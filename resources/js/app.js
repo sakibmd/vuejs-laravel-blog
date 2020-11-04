@@ -11,6 +11,12 @@ import { routes } from './routes';
 
 Vue.component('admin-main', require('./components/admin/AdminMaster.vue').default);
 
+//form
+window.Form = Form;
+import { Form, HasError, AlertError } from 'vform'
+
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
 
 
 const router = new VueRouter({
