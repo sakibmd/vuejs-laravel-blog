@@ -63,31 +63,28 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              
+            <router-link to="/home" class="nav-link">
               <p>
                 Dashboard
               </p>
-            </a>
-        
+            </router-link>
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <router-link to="/category-list" class="nav-link">
              
               <p>
                 Category
               </p>
-            </a>
+            </router-link>
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-             
+            <router-link to="/posts" class="nav-link">
               <p>
                 Posts
               </p>
-            </a>
+            </router-link>
           </li>
 
         
@@ -106,27 +103,9 @@
     
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content p-3">
 
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Title</h3>
-
-          
-        </div>
-        <div class="card-body">
-          <admin-main></admin-main>
-        </div>
-        
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
-
+        <admin-main></admin-main>
 
     </section>
     <!-- /.content -->

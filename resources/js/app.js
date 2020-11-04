@@ -14,7 +14,7 @@ Vue.component('admin-main', require('./components/admin/AdminMaster.vue').defaul
 
 
 const router = new VueRouter({
-  routes, 
+  routes,   //routes js e const er jei nam dei. Etai sheita. Same name dite hobe
   mode: 'history'
 })
 
