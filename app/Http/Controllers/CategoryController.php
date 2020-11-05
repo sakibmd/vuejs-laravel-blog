@@ -25,4 +25,7 @@ class CategoryController extends Controller
             'categories' => $categories
         ], 200);
     }
+    public function delete_category($id){
+        Category::find($id)->delete();
+    }
 }

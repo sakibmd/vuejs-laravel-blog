@@ -2,6 +2,11 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+//support moment js
+import {filter} from './filter'
+
+
+
 // vuex
 import Vuex from 'vuex'
 Vue.use(Vuex)

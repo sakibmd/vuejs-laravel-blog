@@ -58,7 +58,7 @@ export default {
                 this.$router.push('/category-list')
                 Toast.fire({
                   icon: 'success',
-                  title: 'Signed in successfully'
+                  title: 'Category added successfully'
                 })
             })
             .catch(() => {
