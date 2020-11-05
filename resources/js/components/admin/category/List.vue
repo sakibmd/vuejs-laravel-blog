@@ -20,16 +20,15 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Sl</th>
+                    <th>SL</th>
                     <th>Category Name</th>
                     <th>Actions</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Laravel
-                    <td>
+                  <tr v-for="(category, index) in getallCategory" :key="category.id">
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ category.name }}<td>
                         <a href="" class="btn btn-info">Edit</a>
                         <a href="" class="btn btn-danger">Delete</a>
                     </td>
@@ -54,7 +53,18 @@
 
 <script>
 export default {
+  name: "List",
+   mounted(){
+            this.$store.dispatch("allCategory")
+        },
+    computed:{
+        getallCategory(){
+            return this.$store.getters.getCategory
+           }
+    },
+  methods: {
 
+  }
 }
 </script>
 
