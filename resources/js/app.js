@@ -12,11 +12,32 @@ import { routes } from './routes';
 Vue.component('admin-main', require('./components/admin/AdminMaster.vue').default);
 
 //form
-window.Form = Form;
 import { Form, HasError, AlertError } from 'vform'
-
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
+window.Form = Form;
+
+// sweet alert
+import Swal from 'sweetalert2'
+window.Swal = Swal;
+
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 6000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+
+
+window.Toast = Toast;
+
 
 
 const router = new VueRouter({

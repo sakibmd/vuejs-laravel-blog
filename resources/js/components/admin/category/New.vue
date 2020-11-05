@@ -19,7 +19,8 @@
                   <div class="form-group">
                     <label for="exampleInputcategoryEmail1">Add New Category</label>
                     <input type="text" class="form-control" id="category" placeholder="Enter category name"
-                    name="cat_name" v-model="form.cat_name">
+                    name="category_name" v-model="form.category_name" :class="{ 'is-invalid': form.errors.has('category_name') }">
+                    <has-error :form="form" field="category_name"></has-error>
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -45,7 +46,7 @@ export default {
         return {
             // Create a new form instance
             form: new Form({
-                cat_name: '',
+                category_name: '',
             })
         }
     },
@@ -54,7 +55,11 @@ export default {
         // Submit the form via a POST request
         this.form.post('/add-category')
             .then((response) => {
-                console.log(response.data)
+                this.$router.push('/category-list')
+                Toast.fire({
+                  icon: 'success',
+                  title: 'Signed in successfully'
+                })
             })
             .catch(() => {
 
