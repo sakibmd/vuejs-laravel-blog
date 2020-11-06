@@ -13,7 +13,7 @@ class CategoryController extends Controller
         ]);
 
         $category = new Category();
-        $category->name = $request->category_name;
+        $category->category_name = $request->category_name;
         $category->save();
         return  ['message' => 'inserted'];
 
@@ -27,5 +27,22 @@ class CategoryController extends Controller
     }
     public function delete_category($id){
         Category::find($id)->delete();
+    }
+
+    public function edit_category($id){
+        $category = Category::find($id);
+        return response()->json([
+            'category'=>$category
+        ],200);
+    }
+
+    public function update_category(Request $request, $id){
+        $this->validate($request, [
+            'category_name' => 'required|min:2|max:50',
+        ]);
+        
+        $category = Category::find($id);
+        $category->category_name = $request->category_name;
+        $category->save();
     }
 }

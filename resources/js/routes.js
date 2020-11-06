@@ -20,6 +20,6 @@ export const routes = [
     },
     {
         path:'/edit-category/:categoryid',
-        component: EditCategory
+        component:EditCategory
     },
 ];

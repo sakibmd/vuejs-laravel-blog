@@ -43,7 +43,7 @@ $factory->define(Post::class, function (Faker $faker) {
 
 $factory->define(Category::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
+        'category_name' => $faker->name,
     ];
 });
 

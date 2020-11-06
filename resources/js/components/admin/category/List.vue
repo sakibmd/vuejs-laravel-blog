@@ -29,10 +29,10 @@
                   <tbody>
                   <tr v-for="(category, index) in getallCategory" :key="category.id">
                     <td>{{ index + 1 }}</td>
-                    <td>{{ category.name }}</td>
+                    <td>{{ category.category_name }}</td>
                     <td>{{category.created_at | timeformat}}</td>
                     <td>
-                        <router-link href="" class="btn btn-info" :to="`/edit-category/${category.id}`">Edit</router-link>
+                        <router-link class="btn btn-info" :to="`/edit-category/${category.id}`">Edit</router-link>
                         <a href="" @click.prevent="deleteCategory(category.id)" class="btn btn-danger">Delete</a>
                     </td>
                   </tr>
