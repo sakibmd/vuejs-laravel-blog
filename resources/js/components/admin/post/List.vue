@@ -32,10 +32,10 @@
                   <tbody>
                   <tr v-for="(post, index) in getAllPost" :key="post.id">
                     <td>{{ index+1 }}</td>
-                    <td>Sakib</td>
-                    <td>Laravel</td>
-                    <td>{{ post.title }}</td>
-                    <td>{{ post.description }}</td>
+                    <td v-if="post.user">{{ post.user.name }}</td>
+                    <td v-if="post.category">{{ post.category.category_name }}</td>
+                    <td>{{ post.title | shortlength(30, "...") }}</td>
+                    <td>{{ post.description | shortlength(40, "...") }}</td>
                     <td><img :src="post.photo" height="45" width="50"></td>
                     <td>
                         
