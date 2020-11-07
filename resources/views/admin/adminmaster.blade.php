@@ -80,7 +80,7 @@
           </li>
 
           <li class="nav-item has-treeview">
-            <router-link to="/posts" class="nav-link">
+            <router-link to="/post-list" class="nav-link">
               <p>
                 Posts
               </p>
