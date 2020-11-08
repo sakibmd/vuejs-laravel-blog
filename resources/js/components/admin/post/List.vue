@@ -8,11 +8,11 @@
               <div class="card-header">
                 <h3 class="card-title">Post List</h3>
                 <div class="card-tools">
-                    <button class="btn btn-primary">
-                        <!-- <router-link to="/add-post" style="color:white">
+                   
+                        <router-link to="/add-post" style="color:white" class="btn btn-primary">
                             Add Post
-                        </router-link> -->
-                    </button>
+                        </router-link>
+                    
                 </div>
               </div>
               <!-- /.card-header -->

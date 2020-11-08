@@ -63,7 +63,7 @@ export default {
     computed:{
         getallCategory(){
             return this.$store.getters.getCategory
-           }
+        }
     },
   methods: {
       deleteCategory(id){
