@@ -4795,6 +4795,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "List",
   mounted: function mounted() {
@@ -4818,6 +4877,69 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4907,13 +5029,36 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var file = event.target.files[0];
-      var reader = new FileReader();
 
-      reader.onload = function (event) {
-        _this.form.photo = event.target.result;
-      };
+      if (file.size > 1048576) {
+        Swal.fire({
+          type: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href>Why do I have this issue?</a>'
+        });
+      } else {
+        var reader = new FileReader();
 
-      reader.readAsDataURL(file);
+        reader.onload = function (event) {
+          _this.form.photo = event.target.result;
+          console.log(event.target.result);
+        };
+
+        reader.readAsDataURL(file);
+      }
+    },
+    addNewPost: function addNewPost() {
+      var _this2 = this;
+
+      this.form.post('/savepost').then(function (response) {
+        _this2.$router.push('/post-list');
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Post added successfully'
+        });
+      })["catch"](function () {});
     }
   }
 });
@@ -88955,7 +89100,7 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                        Add Post\n                    "
+                          "\n\n                                    Add Post\n\n                                "
                         )
                       ]
                     )
@@ -89103,7 +89248,15 @@ var render = function() {
             _vm._v(" "),
             _c(
               "form",
-              { attrs: { role: "form", enctype: "multipart/form-data" } },
+              {
+                attrs: { role: "form", enctype: "multipart/form-data" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.addNewPost()
+                  }
+                }
+              },
               [
                 _c("div", { staticClass: "card-body" }, [
                   _c(
@@ -89227,9 +89380,9 @@ var render = function() {
                               { domProps: { value: category.id } },
                               [
                                 _vm._v(
-                                  "\n                                        " +
+                                  "\n\n                                            " +
                                     _vm._s(category.category_name) +
-                                    "\n                                    "
+                                    "\n\n                                        "
                                 )
                               ]
                             )

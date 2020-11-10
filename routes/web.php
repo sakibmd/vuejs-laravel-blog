@@ -30,3 +30,4 @@ Route::get('/editcategory/{id}','CategoryController@edit_category');
 Route::post('/update-category/{id}','CategoryController@update_category');
 
 Route::get('/posts', 'PostController@all_posts');
+Route::post('/savepost', 'PostController@save_post');
