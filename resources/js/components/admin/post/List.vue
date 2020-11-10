@@ -73,15 +73,15 @@
     
                                             <td>{{ post.description | shortlength(40, "...") }}</td>
     
-                                            <td><img :src="post.photo" height="45" width="50"></td>
+                                            <td><img :src="showImage(post.photo)" height="45" width="50"></td>
     
                                             <td>
     
     
     
-                                                <a href="" class="btn btn-info btn-sm">Edit</a>
+                                                <router-link class="btn btn-info btn-sm" :to="`/edit-post/${post.id}`">Edit</router-link>
     
-                                                <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                                <a href="" class="btn btn-danger btn-sm" @click.prevent="deletePost(post.id)">Delete</a>
     
                                             </td>
     
@@ -130,6 +130,24 @@ export default {
             return this.$store.getters.getPost
         }
     },
+    methods: {
+      showImage(img){
+        return "/uploadimage/" + img;
+      },
+      deletePost(id){
+          axios.get('/deletepost/'+ id)
+            .then(()=>{
+                this.$store.dispatch("getAllPost")
+                Toast.fire({
+                  icon: 'success',
+                  title: 'Post deleted successfully'
+              })
+            })
+            .catch(()=> {
+
+            })
+      }
+    }
 }
 </script>
 
