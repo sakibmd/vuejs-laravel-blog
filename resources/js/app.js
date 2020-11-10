@@ -2,6 +2,13 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+// suppot editor
+import 'v-markdown-editor/dist/v-markdown-editor.css';
+import Editor from 'v-markdown-editor'
+// global register
+Vue.use(Editor);
+
+
 //support moment js
 import {filter} from './filter'
 

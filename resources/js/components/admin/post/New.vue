@@ -21,10 +21,11 @@
                                 <div class="form-group">
                                     <label for="descriptionId">Description</label>
 
-                                    <textarea type="text" class="form-control" id="description" placeholder="post description.." v-model="form.description" name="description" :class="{ 'is-invalid': form.errors.has('description') }">
-                                    </textarea>
-
+                                    <!-- <textarea type="text" class="form-control" id="description" placeholder="post description.." v-model="form.description" name="description" :class="{ 'is-invalid': form.errors.has('description') }">
+                                    </textarea> -->
+                                     <markdown-editor placeholder="post description.." v-model="form.description"></markdown-editor>
                                     <has-error :form="form" field="description"></has-error>
+                                   
                                 </div>
 
                                 <div class="form-group" >
@@ -40,7 +41,8 @@
                                 </div>
                                 <div class="form-group" >
                                     <input @change = "changePhoto($event)" name="photo" type="file" :class="{ 'is-invalid': form.errors.has('photo') }">
-                                    <img :src="form.photo" alt="" width="80" height="80" alt="image">
+                                    <img :src="form.photo" alt="" width="80" height="80" alt="preview">
+                                     <has-error :form="form" field="photo"></has-error>
                                 </div>
 
                             </div>
