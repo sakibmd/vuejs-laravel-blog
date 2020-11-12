@@ -12,21 +12,21 @@ export default {
         getPost(state) {
             return state.post
         }
-        
+
     },
     actions: {
         allCategory(context) {
             axios.get('/category')
                 .then((response) => {
                     context.commit('categories', response.data.categories)
-                    
+
                 })
         },
         getAllPost(context) {
             axios.get('/posts')
                 .then((response) => {
                     context.commit('posts', response.data.posts)
-                    
+
                 })
         }
     },
@@ -38,6 +38,6 @@ export default {
             return state.post = date
         }
     },
-   
-    
+
+
 }

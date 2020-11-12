@@ -10,7 +10,9 @@ Vue.use(Editor);
 
 
 //support moment js
-import {filter} from './filter'
+import {
+    filter
+} from './filter'
 
 
 
@@ -27,13 +29,19 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import { routes } from './routes';
+import {
+    routes
+} from './routes';
 
 
 Vue.component('admin-main', require('./components/admin/AdminMaster.vue').default);
 
 //form
-import { Form, HasError, AlertError } from 'vform'
+import {
+    Form,
+    HasError,
+    AlertError
+} from 'vform'
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 window.Form = Form;
@@ -44,26 +52,24 @@ window.Swal = Swal;
 
 
 const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 6000,
-  timerProgressBar: true,
-  didOpen: (toast) => {
-    toast.addEventListener('mouseenter', Swal.stopTimer)
-    toast.addEventListener('mouseleave', Swal.resumeTimer)
-  }
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 6000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
 })
 
 
 
 window.Toast = Toast;
 
-
-
 const router = new VueRouter({
-  routes,   //routes js e const er jei nam dei. Etai sheita. Same name dite hobe
-  mode: 'hash'
+    routes, //routes js e const er jei nam dei. Etai sheita. Same name dite hobe
+    mode: 'hash'
 })
 
 const app = new Vue({
