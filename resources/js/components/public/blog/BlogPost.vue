@@ -59,17 +59,14 @@
                                             </li>
                                             <li v-if="post.category">
                                                 <i class="icon-folder-open"></i
-                                                ><a href="#"> {{ post.category.name }}</a>
+                                                ><a href="#"> {{ post.category.category_name }}</a>
                                             </li>
-                                            <li>
-                                                <i class="icon-comments"></i
-                                                ><a href="#">4 Comments</a>
-                                            </li>
+                                            
                                         </ul>
-                                        <a href="#" class="pull-right"
+                                        <router-link :to="`/blog/${post.id}`" class="pull-right"
                                             >Continue reading
                                             <i class="icon-angle-right"></i
-                                        ></a>
+                                        ></router-link>
                                     </div>
                                 </div>
                             </div>
