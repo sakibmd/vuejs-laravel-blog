@@ -35,6 +35,7 @@ import {
 
 
 Vue.component('admin-main', require('./components/admin/AdminMaster.vue').default);
+Vue.component('home-main', require('./components/public/PublicMaster.vue').default);
 
 //form
 import {

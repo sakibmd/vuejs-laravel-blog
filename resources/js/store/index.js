@@ -3,7 +3,8 @@ import Axios from "axios"
 export default {
     state: {
         category: [],
-        post: []
+        post: [],
+        blogpost: []
     },
     getters: {
         getCategory(state) {
@@ -11,6 +12,9 @@ export default {
         },
         getPost(state) {
             return state.post
+        },
+        getBlogPost(state) {
+            return state.blogpost
         }
 
     },
@@ -28,6 +32,13 @@ export default {
                     context.commit('posts', response.data.posts)
 
                 })
+        },
+        getBlogPost(context) {
+            axios.get('/blogposts')
+                .then((response) => {
+                    context.commit('getBlogPost', response.data.posts)
+
+                })
         }
     },
     mutations: {
@@ -36,6 +47,9 @@ export default {
         },
         posts(state, date) {
             return state.post = date
+        },
+        getBlogPost(state, payload) {
+            return state.blogpost = payload
         }
     },
 

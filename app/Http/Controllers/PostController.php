@@ -25,7 +25,7 @@ class PostController extends Controller
         $sub = substr($request->photo,0,$strpos);
         $ex = explode('/',$sub)[1];
         $name = time().".".$ex;
-        $img = Image::make($request->photo)->resize(200, 200);
+        $img = Image::make($request->photo)->resize(800, 400);
         $upload_path = public_path()."/uploadimage/";
         $img->save($upload_path.$name);
 
@@ -68,7 +68,7 @@ class PostController extends Controller
             $sub = substr($request->photo,0,$strpos);
             $ex = explode('/',$sub)[1];
             $name = time().".".$ex;
-            $img = Image::make($request->photo)->resize(200, 200);
+            $img = Image::make($request->photo)->resize(800, 400);
             $upload_path = public_path()."/uploadimage/";
             $img->save($upload_path.$name);
             $image = $upload_path. $post->photo;
