@@ -40,7 +40,8 @@
                                                 <i class="icon-folder-open"></i
                                                 ><a href="#">
                                                     {{
-                                                        singlepost.category.category_name
+                                                        singlepost.category
+                                                            .category_name
                                                     }}</a
                                                 >
                                             </li>
@@ -64,8 +65,9 @@ export default {
         return {};
     },
     mounted() {
-        this.$store.dispatch("getPostById", this.$route.params.id);
+        this.postShow();
     },
+
     computed: {
         singlepost() {
             return this.$store.getters.singlePost;
@@ -73,6 +75,16 @@ export default {
     },
     components: {
         BlogSidebar
+    },
+    methods: {
+        postShow(){
+           this.$store.dispatch("getPostById", this.$route.params.id);
+        }
+    },
+    watch: {
+        $route(to, from){
+             this.postShow();
+        }
     }
 };
 </script>

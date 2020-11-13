@@ -84,7 +84,6 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->description = $request->description;
         $post->category_id = $request->category_id;
-        $post->user_id = Auth::id();
         $post->photo = $name;
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
 
 class BlogController extends Controller
@@ -19,6 +20,21 @@ class BlogController extends Controller
         $post = Post::with('category', 'user')->where('id', $id)->first();
         return response()->json([
             'post' => $post,
+        ], 200);
+    }
+
+    public function get_all_categories(){
+        $categories = Category::all();
+        return response()->json([
+            'categories' => $categories,
+        ], 200);
+
+    }
+
+    public function get_all_posts_by_cat_id($id){
+        $posts = Post::with('category', 'user')->where('category_id', $id)->get();
+        return response()->json([
+            'posts' => $posts,
         ], 200);
     }
 }

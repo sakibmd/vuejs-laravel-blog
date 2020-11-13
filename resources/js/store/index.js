@@ -6,6 +6,7 @@ export default {
         post: [],
         blogpost: [],
         singlepost: [],
+        allCategoriesForSidebar: [],
     },
     getters: {
         getCategory(state) {
@@ -19,7 +20,10 @@ export default {
         },
         singlePost(state) {
             return state.singlepost
-        }
+        },
+        categorySidebar(state) {
+            return state.allCategoriesForSidebar
+        },
 
     },
     actions: {
@@ -49,7 +53,19 @@ export default {
                 .then((response) => {
                     context.commit('singlePost', response.data.post)
                 })
-        }
+        },
+        allCategoriesForSidebar(context) {
+            axios.get('/categories')
+                .then((response) => {
+                    context.commit('allCategoriesForSidebar', response.data.categories)
+                })
+        },
+        getPostByCategoryId(context, payload) {
+            axios.get('/categorywisepost/'+ payload)
+                .then((response) => {
+                    context.commit('getPostByCategoryId', response.data.posts)
+                })
+        },
 
     },
     mutations: {
@@ -64,8 +80,13 @@ export default {
         },
         singlePost(state, payload) {
             return state.singlepost = payload
-        }
+        },
+        allCategoriesForSidebar(state, payload) {
+            return state.allCategoriesForSidebar = payload
+        },
+        getPostByCategoryId(state, payload) {
+            return state.blogpost = payload
+        },
     },
-
 
 }

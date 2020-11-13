@@ -64,4 +64,9 @@ export const routes = [
         component:SinglePost
     },
 
+    {
+        path:'/categories/:id',
+        component:BlogPost
+    },
+
 ];
