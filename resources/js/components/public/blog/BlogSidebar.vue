@@ -31,7 +31,7 @@
                             ><router-link :to="`/categories/${category.id}`">{{
                                 category.category_name
                             }}</router-link
-                            ><span> (20)</span>
+                            ><span v-if="category.posts"> ({{ category.posts.length }})</span>
                         </li>
                     </ul>
                 </div>
@@ -71,14 +71,14 @@ export default {
     },
     mounted() {
         this.$store.dispatch("allCategoriesForSidebar");
-        this.$store.dispatch("getBlogPost");
+        this.$store.dispatch("latestPost");
     },
     computed: {
         allCategories() {
             return this.$store.getters.categorySidebar;
         },
         blogpost() {
-            return this.$store.getters.getBlogPost;
+            return this.$store.getters.latestPost;
         }
     },
     methods: {

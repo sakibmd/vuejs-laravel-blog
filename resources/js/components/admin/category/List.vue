@@ -26,6 +26,30 @@
                                 >
                                     <thead>
                                         <tr>
+                                            <th>
+                                                <select
+                                                    name=""
+                                                    id=""
+                                                    v-model="select"
+                                                    @change="deleteSelected"
+                                                >
+                                                    <option value=""
+                                                        >Select</option
+                                                    >
+                                                    <option value=""
+                                                        >Delete all</option
+                                                    > </select
+                                                ><br />
+                                                <input
+                                                    type="checkbox"
+                                                    @click.prevent="selectAll"
+                                                    v-model="all_select"
+                                                />
+                                                <span v-if="all_select == false"
+                                                    >Check All</span
+                                                >
+                                                <span v-else>Uncheck All</span>
+                                            </th>
                                             <th>SL</th>
                                             <th>Category Name</th>
                                             <th>Created</th>
@@ -38,6 +62,13 @@
                                             index) in getallCategory"
                                             :key="category.id"
                                         >
+                                            <td>
+                                                <input
+                                                    type="checkbox"
+                                                    v-model="categoryItem"
+                                                    :value="category.id"
+                                                />
+                                            </td>
                                             <td>{{ index + 1 }}</td>
                                             <td>
                                                 {{ category.category_name }}
@@ -87,6 +118,13 @@
 <script>
 export default {
     name: "List",
+    data() {
+        return {
+            categoryItem: [],
+            select: "",
+            all_select: false
+        };
+    },
     mounted() {
         this.$store.dispatch("allCategory");
     },
@@ -104,6 +142,31 @@ export default {
                     title: "Category deleted successfully"
                 });
             });
+        },
+
+        deleteSelected() {
+            console.log(this.categoryItem);
+            axios
+                .get("/deletecategoryUsingCheckBox/" + this.categoryItem)
+                .then(() => {
+                    this.categoryItem = [];
+                    this.$store.dispatch("allCategory");
+                    Toast.fire({
+                        icon: "success",
+                        title: "Category deleted successfully"
+                    });
+                });
+        },
+        selectAll() {
+            if (this.all_select == false) {
+                this.all_select = true;
+                for (var category in this.getallCategory) {
+                    this.categoryItem.push(this.getallCategory[category].id);
+                }
+            } else {
+                this.all_select = false;
+                this.categoryItem = [];
+            }
         }
     }
 };

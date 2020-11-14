@@ -26,7 +26,7 @@ class BlogController extends Controller
 
     public function get_all_categories()
     {
-        $categories = Category::all();
+        $categories = Category::with('posts')->latest()->get();
         return response()->json([
             'categories' => $categories,
         ], 200);
@@ -56,5 +56,12 @@ class BlogController extends Controller
             return $this->get_all_blogpost();
         }
 
+    }
+
+    public function latest_post(){
+        $posts = Post::latest()->with('user', 'category')->get();
+        return response()->json([
+            'posts' => $posts,
+        ], 200);
     }
 }
