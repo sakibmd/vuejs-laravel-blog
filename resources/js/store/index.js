@@ -25,6 +25,7 @@ export default {
             return state.allCategoriesForSidebar
         },
 
+
     },
     actions: {
         allCategory(context) {
@@ -49,7 +50,7 @@ export default {
                 })
         },
         getPostById(context, payload) {
-            axios.get('/singlepost/'+ payload)
+            axios.get('/singlepost/' + payload)
                 .then((response) => {
                     context.commit('singlePost', response.data.post)
                 })
@@ -61,9 +62,15 @@ export default {
                 })
         },
         getPostByCategoryId(context, payload) {
-            axios.get('/categorywisepost/'+ payload)
+            axios.get('/categorywisepost/' + payload)
                 .then((response) => {
                     context.commit('getPostByCategoryId', response.data.posts)
+                })
+        },
+        searchPost(context, payload) {
+            axios.get('/search?s=' + payload)
+                .then((response) => {
+                    context.commit('searchPost', response.data.posts)
                 })
         },
 
@@ -85,6 +92,9 @@ export default {
             return state.allCategoriesForSidebar = payload
         },
         getPostByCategoryId(state, payload) {
+            return state.blogpost = payload
+        },
+        searchPost(state, payload) {
             return state.blogpost = payload
         },
     },

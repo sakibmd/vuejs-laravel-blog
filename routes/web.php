@@ -38,8 +38,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/update/{id}', 'PostController@update_post');
 });
 
-
 Route::get('/blogposts', 'BlogController@get_all_blogpost');
 Route::get('/singlepost/{id}', 'BlogController@get_post_by_id');
 Route::get('/categories', 'BlogController@get_all_categories');
 Route::get('/categorywisepost/{id}', 'BlogController@get_all_posts_by_cat_id');
+Route::get('/search', 'BlogController@search_post');

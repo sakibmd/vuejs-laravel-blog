@@ -8,8 +8,14 @@
                             placeholder="Type something"
                             type="text"
                             class="input-medium search-query"
+                            v-model="keyword"
+                            @keyup="RealSearch"
                         />
-                        <button type="submit" class="btn btn-square btn-theme">
+                        <button
+                            type="submit"
+                            class="btn btn-square btn-theme"
+                            @click.prevent="RealSearch"
+                        >
                             Search
                         </button>
                     </form>
@@ -22,7 +28,9 @@
                             :key="category.id"
                         >
                             <i class="icon-angle-right"></i
-                            ><router-link :to="`/categories/${category.id}`">{{ category.category_name }}</router-link
+                            ><router-link :to="`/categories/${category.id}`">{{
+                                category.category_name
+                            }}</router-link
                             ><span> (20)</span>
                         </li>
                     </ul>
@@ -37,7 +45,9 @@
                         >
                             <img :src="`/uploadimage/${post.photo}`" alt="" />
                             <h6>
-                                <router-link :to="`/blog/${post.id}`">{{ post.title }}</router-link>
+                                <router-link :to="`/blog/${post.id}`">{{
+                                    post.title
+                                }}</router-link>
                             </h6>
                             <p>
                                 {{ post.description | shortlength(100, "...") }}
@@ -52,7 +62,13 @@
 </template>
 
 <script>
+import _ from "lodash";
 export default {
+    data() {
+        return {
+            keyword: ""
+        };
+    },
     mounted() {
         this.$store.dispatch("allCategoriesForSidebar");
         this.$store.dispatch("getBlogPost");
@@ -66,17 +82,23 @@ export default {
         }
     },
     methods: {
-        getAllCategoryWisePost(){
-            if(this.$route.params.id!=null){
-                 this.$store.dispatch("getPostByCategoryId", this.$route.params.id);
-            }else{
-                 this.$store.dispatch("getBlogPost");
+        getAllCategoryWisePost() {
+            if (this.$route.params.id != null) {
+                this.$store.dispatch(
+                    "getPostByCategoryId",
+                    this.$route.params.id
+                );
+            } else {
+                this.$store.dispatch("getBlogPost");
             }
-        }
+        },
+        RealSearch: _.debounce(function() {
+            this.$store.dispatch("searchPost", this.keyword);
+        }, 1000)
     },
     watch: {
-        $route(to, from){
-            this.getAllCategoryWisePost()
+        $route(to, from) {
+            this.getAllCategoryWisePost();
         }
     }
 };

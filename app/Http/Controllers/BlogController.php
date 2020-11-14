@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Post;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -23,7 +24,8 @@ class BlogController extends Controller
         ], 200);
     }
 
-    public function get_all_categories(){
+    public function get_all_categories()
+    {
         $categories = Category::all();
         return response()->json([
             'categories' => $categories,
@@ -31,10 +33,28 @@ class BlogController extends Controller
 
     }
 
-    public function get_all_posts_by_cat_id($id){
+    public function get_all_posts_by_cat_id($id)
+    {
         $posts = Post::with('category', 'user')->where('category_id', $id)->get();
         return response()->json([
             'posts' => $posts,
         ], 200);
+    }
+
+    public function search_post()
+    {
+        $search = \Request::get('s');
+        if ($search != null) {
+            $posts = Post::with('user', 'category')
+                ->where('title', 'LIKE', "%$search%")
+                ->orWhere('description', 'LIKE', "%$search%")
+                ->get();
+            return response()->json([
+                'posts' => $posts,
+            ], 200);
+        } else {
+            return $this->get_all_blogpost();
+        }
+
     }
 }
