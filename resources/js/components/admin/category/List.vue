@@ -3,7 +3,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-8 ">
+                    <div class="col-12">
                         <div class="card ">
                             <div class="card-header">
                                 <h3 class="card-title">Category List</h3>
@@ -81,7 +81,7 @@
                                             </td>
                                             <td>
                                                 <router-link
-                                                    class="btn btn-info"
+                                                    class="btn btn-info btn-sm"
                                                     :to="
                                                         `/edit-category/${category.id}`
                                                     "
@@ -94,7 +94,7 @@
                                                             category.id
                                                         )
                                                     "
-                                                    class="btn btn-danger"
+                                                    class="btn btn-danger btn-sm"
                                                     >Delete</a
                                                 >
                                             </td>

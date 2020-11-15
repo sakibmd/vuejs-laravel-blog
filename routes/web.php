@@ -31,6 +31,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/update-category/{id}', 'CategoryController@update_category');
     Route::get('/deletecategoryUsingCheckBox/{ids}', 'CategoryController@selected_category');
 
+//dashboard
+    Route::get('/totalUsers', 'HomeController@total_users');
+
 //post
     Route::get('/posts', 'PostController@all_posts');
     Route::post('/savepost', 'PostController@save_post');

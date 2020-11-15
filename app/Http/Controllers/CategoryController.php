@@ -51,11 +51,12 @@ class CategoryController extends Controller
         $category->save();
     }
 
-    public function selected_category($ids){
-        $all_id = explode(',',$ids);
-        foreach ($all_id as $id){
+    public function selected_category($ids)
+    {
+        $all_id = explode(',', $ids);
+        foreach ($all_id as $id) {
             $category = Category::find($id);
             $category->delete();
         }
-     }
+    }
 }

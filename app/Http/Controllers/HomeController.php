@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +25,12 @@ class HomeController extends Controller
     public function index()
     {
         return view('admin.adminmaster');
+    }
+
+    public function total_users(){
+        $totalUsers = User::all()->count();
+        return response()->json([
+            'totalUsers' => $totalUsers,
+        ], 200);
     }
 }

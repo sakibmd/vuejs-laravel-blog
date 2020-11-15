@@ -79,7 +79,7 @@
 
                                             <td>
                                                 <router-link
-                                                    class="btn btn-info btn-sm"
+                                                    class="btn btn-info btn-sm m-1"
                                                     :to="
                                                         `/edit-post/${post.id}`
                                                     "
@@ -88,7 +88,7 @@
 
                                                 <a
                                                     href=""
-                                                    class="btn btn-danger btn-sm"
+                                                    class="btn btn-danger btn-sm m-1"
                                                     @click.prevent="
                                                         deletePost(post.id)
                                                     "

@@ -7,7 +7,8 @@ export default {
         blogpost: [],
         singlepost: [],
         allCategoriesForSidebar: [],
-        latestpost: []
+        latestpost: [],
+        totalUsers: []
     },
     getters: {
         getCategory(state) {
@@ -27,6 +28,9 @@ export default {
         },
         latestPost(state) {
             return state.latestpost
+        },
+        totalUsers(state) {
+            return state.totalUsers
         },
 
 
@@ -83,6 +87,12 @@ export default {
                     context.commit('latestpost', response.data.posts)
                 })
         },
+        totalUser(context) {
+            axios.get('/totalUsers')
+                .then((response) => {
+                    context.commit('totalUsers', response.data.totalUsers)
+                })
+        },
 
     },
     mutations: {
@@ -109,6 +119,9 @@ export default {
         },
         latestpost(state, payload) {
             return state.latestpost = payload
+        },
+        totalUsers(state, payload) {
+            return state.totalUsers = payload
         },
     },
 

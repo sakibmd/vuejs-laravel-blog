@@ -9,25 +9,27 @@ use Image;
 
 class PostController extends Controller
 {
-    public function all_posts(){
+    public function all_posts()
+    {
         $posts = Post::latest()->with('user', 'category')->get();
         return response()->json([
-            'posts' => $posts
+            'posts' => $posts,
         ], 200);
     }
 
-    public function save_post(Request $request){
-        $this->validate($request,[
-            'title'=>'required|min:2|max:50',
-            'description'=>'required|min:10'
+    public function save_post(Request $request)
+    {
+        $this->validate($request, [
+            'title' => 'required|min:2|max:100',
+            'description' => 'required|min:10',
         ]);
-        $strpos = strpos($request->photo,';');
-        $sub = substr($request->photo,0,$strpos);
-        $ex = explode('/',$sub)[1];
-        $name = time().".".$ex;
+        $strpos = strpos($request->photo, ';');
+        $sub = substr($request->photo, 0, $strpos);
+        $ex = explode('/', $sub)[1];
+        $name = time() . "." . $ex;
         $img = Image::make($request->photo)->resize(800, 400);
-        $upload_path = public_path()."/uploadimage/";
-        $img->save($upload_path.$name);
+        $upload_path = public_path() . "/uploadimage/";
+        $img->save($upload_path . $name);
 
         $post = new Post();
         $post->title = $request->title;
@@ -38,54 +40,54 @@ class PostController extends Controller
         $post->save();
     }
 
-    public function delete_post($id){
+    public function delete_post($id)
+    {
         $post = Post::find($id);
-        $image_path = public_path()."/uploadimage/";
-        $image = $image_path. $post->photo;
-        if(file_exists($image)){
+        $image_path = public_path() . "/uploadimage/";
+        $image = $image_path . $post->photo;
+        if (file_exists($image)) {
             @unlink($image);
         }
         $post->delete();
     }
 
-    public function edit_post($id){
+    public function edit_post($id)
+    {
         $post = Post::find($id);
         return response()->json([
-            'post' => $post
+            'post' => $post,
         ], 200);
     }
 
-    public function update_post(Request $request, $id){
+    public function update_post(Request $request, $id)
+    {
         $post = Post::find($id);
-        $this->validate($request,[
-            'title'=>'required|min:2|max:50',
-            'description'=>'required|min:2|max:1000'
+        $this->validate($request, [
+            'title' => 'required|min:2|max:100',
+            'description' => 'required|min:10',
         ]);
 
-
-        if($request->photo!=$post->photo){
-            $strpos = strpos($request->photo,';');
-            $sub = substr($request->photo,0,$strpos);
-            $ex = explode('/',$sub)[1];
-            $name = time().".".$ex;
+        if ($request->photo != $post->photo) {
+            $strpos = strpos($request->photo, ';');
+            $sub = substr($request->photo, 0, $strpos);
+            $ex = explode('/', $sub)[1];
+            $name = time() . "." . $ex;
             $img = Image::make($request->photo)->resize(800, 400);
-            $upload_path = public_path()."/uploadimage/";
-            $img->save($upload_path.$name);
-            $image = $upload_path. $post->photo;
+            $upload_path = public_path() . "/uploadimage/";
+            $img->save($upload_path . $name);
+            $image = $upload_path . $post->photo;
 
-            if(file_exists($image)){
+            if (file_exists($image)) {
                 @unlink($image);
             }
-        }else{
+        } else {
             $name = $post->photo;
         }
-
 
         $post->title = $request->title;
         $post->description = $request->description;
         $post->category_id = $request->category_id;
         $post->photo = $name;
-
 
         $post->save();
     }
