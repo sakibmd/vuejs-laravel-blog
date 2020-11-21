@@ -17,6 +17,13 @@ class PostController extends Controller
         ], 200);
     }
 
+    public function post_details($id){
+        $post = Post::with('category', 'user')->where('id', $id)->first();
+        return response()->json([
+            'post' => $post,
+        ], 200);
+    }
+
     public function save_post(Request $request)
     {
         $this->validate($request, [

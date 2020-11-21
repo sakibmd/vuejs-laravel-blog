@@ -79,6 +79,15 @@
 
                                             <td>
                                                 <router-link
+                                                    class="btn btn-success btn-sm m-1"
+                                                    :to="
+                                                        `/post-details/${post.id}`
+                                                    "
+                                                    >Details</router-link
+                                                >
+
+
+                                                <router-link
                                                     class="btn btn-info btn-sm m-1"
                                                     :to="
                                                         `/edit-post/${post.id}`
