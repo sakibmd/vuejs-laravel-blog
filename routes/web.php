@@ -40,7 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/deletepost/{id}', 'PostController@delete_post');
     Route::get('/post/{id}', 'PostController@edit_post');
     Route::post('/update/{id}', 'PostController@update_post');
-    Route::post('/post-details/{id}', 'PostController@post_details');
+    Route::get('/post-details/{id}', 'PostController@post_details');
 });
 
 Route::get('/blogposts', 'BlogController@get_all_blogpost');

@@ -5540,14 +5540,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "List",
   mounted: function mounted() {
-    this.$store.dispatch("getAllPost");
+    this.$store.dispatch("getPostDetailsAdminPanel", this.$route.params.id);
   },
   computed: {
-    getAllPost: function getAllPost() {
-      return this.$store.getters.getPost;
+    getPostDetails: function getPostDetails() {
+      return this.$store.getters.postDetailsAdminPanel;
     }
   },
   methods: {}
@@ -90871,9 +90912,90 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("span", { attrs: { id: "single-post" } })
+  return _c("span", { attrs: { id: "single-post" } }, [
+    _c("div", { staticClass: "card justify-content-center" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("table", { staticClass: "table table-hover" }, [
+          _c("tr", [
+            _c("th", [_vm._v("Post Title")]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.getPostDetails.title) +
+                  "\n          "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", [_vm._v("Posted By")]),
+            _vm._v(" "),
+            _c("td", [
+              _vm.getPostDetails.user
+                ? _c("p", [_vm._v(_vm._s(_vm.getPostDetails.user.name))])
+                : _vm._e()
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", [_vm._v("Category")]),
+            _vm._v(" "),
+            _c("td", [
+              _vm.getPostDetails.category
+                ? _c("p", [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.getPostDetails.category.category_name) +
+                        "\n            "
+                    )
+                  ])
+                : _vm._e()
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", [_vm._v("Description")]),
+            _vm._v(" "),
+            _c("td", [
+              _c("p", { staticClass: "text-justify" }, [
+                _vm._v(_vm._s(_vm.getPostDetails.description))
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "card-footer" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-danger btn-sm m-1",
+              attrs: { to: "/post-list" }
+            },
+            [_vm._v("Back")]
+          )
+        ],
+        1
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header bg-info" }, [
+      _c("strong", [_vm._v("Details")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -109099,6 +109221,7 @@ __webpack_require__.r(__webpack_exports__);
   state: {
     category: [],
     post: [],
+    postDetailsAdminPanel: [],
     blogpost: [],
     singlepost: [],
     allCategoriesForSidebar: [],
@@ -109111,6 +109234,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     getPost: function getPost(state) {
       return state.post;
+    },
+    postDetailsAdminPanel: function postDetailsAdminPanel(state) {
+      return state.postDetailsAdminPanel;
     },
     getBlogPost: function getBlogPost(state) {
       return state.blogpost;
@@ -109137,6 +109263,11 @@ __webpack_require__.r(__webpack_exports__);
     getAllPost: function getAllPost(context) {
       axios.get('/posts').then(function (response) {
         context.commit('posts', response.data.posts);
+      });
+    },
+    getPostDetailsAdminPanel: function getPostDetailsAdminPanel(context, payload) {
+      axios.get('/post-details/' + payload).then(function (response) {
+        context.commit('getPostDetailsAdminPanel', response.data.post);
       });
     },
     getBlogPost: function getBlogPost(context) {
@@ -109181,6 +109312,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     posts: function posts(state, date) {
       return state.post = date;
+    },
+    getPostDetailsAdminPanel: function getPostDetailsAdminPanel(state, date) {
+      return state.postDetailsAdminPanel = date;
     },
     getBlogPost: function getBlogPost(state, payload) {
       return state.blogpost = payload;

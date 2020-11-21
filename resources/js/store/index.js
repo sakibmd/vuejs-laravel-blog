@@ -4,6 +4,7 @@ export default {
     state: {
         category: [],
         post: [],
+        postDetailsAdminPanel: [],
         blogpost: [],
         singlepost: [],
         allCategoriesForSidebar: [],
@@ -16,6 +17,9 @@ export default {
         },
         getPost(state) {
             return state.post
+        },
+        postDetailsAdminPanel(state) {
+            return state.postDetailsAdminPanel
         },
         getBlogPost(state) {
             return state.blogpost
@@ -48,6 +52,12 @@ export default {
                 .then((response) => {
                     context.commit('posts', response.data.posts)
 
+                })
+        },
+        getPostDetailsAdminPanel(context, payload) {
+            axios.get('/post-details/' + payload)
+                .then((response) => {
+                    context.commit('getPostDetailsAdminPanel', response.data.post)
                 })
         },
         getBlogPost(context) {
@@ -101,6 +111,9 @@ export default {
         },
         posts(state, date) {
             return state.post = date
+        },
+        getPostDetailsAdminPanel(state, date) {
+            return state.postDetailsAdminPanel = date
         },
         getBlogPost(state, payload) {
             return state.blogpost = payload

@@ -12,7 +12,14 @@ import PublicHome from "./components/public/PublicHome.vue"
 import BlogPost from "./components/public/blog/BlogPost.vue"
 import SinglePost from "./components/public/blog/SingleBlog.vue"
 
+
+import Login from "./components/public/Login.vue"
+
 export const routes = [
+    {
+        path:'/login',
+        component: Login
+    },
     {
         path:'/home',
         component: AdminHome
