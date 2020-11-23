@@ -1,65 +1,49 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<h1>It's a simple practice project. I created a Blog Project using Laravel & Vue js. </h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+- Here are some features that i try to implement in this project:
 
-## About Laravel
+## Vue Router with Laravel(Using for routing)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Vue filter
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Use Vuex with Laravel (Used for state management)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## How to Install AdminLTE 3 (Template used for admin panel)
 
-## Learning Laravel
+## Vform validation with Laravel (Used for form validation)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Relational Database with Laravel (Used for Maintainance DB)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Axios and Ajax Request (Passing request for fetch and crud operation)
 
-## Laravel Sponsors
+## Use Moment js on Laravel (Used for formating date time)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Use sweetalert2 (Used for flash message)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+## Image intervation with Laravel (Used for image resize) 
+
+## Use lodash 
+
+## And much more...
+
+<h2>** Here is Admin Panel Dashboard</h2>
+<img src="https://github.com/sakibmd/vuejs-laravel-blog/blob/master/screenshots/dashboard.png" alt="Admin Dashboard">
+
+<h2>** Admin Panel All Category List</h2>
+<img src="https://github.com/sakibmd/vuejs-laravel-blog/blob/master/screenshots/categorylist.png" alt="CategoryList">
+
+<h2>** Admin Panel Post Category List</h2>
+<img src="https://github.com/sakibmd/vuejs-laravel-blog/blob/master/screenshots/postslist.png" alt="PostList">
+
+
+<h2>** Here is Single View of a blog for guest user</h2>
+<img src="https://github.com/sakibmd/vuejs-laravel-blog/blob/master/screenshots/singleblog.png" alt="single blog">
+
+<h2>** Realtime Search Result</h2>
+<img src="https://github.com/sakibmd/vuejs-laravel-blog/blob/master/screenshots/search.jpg" alt="search result">
+
+<h2>** Category wise blog show for guest user</h2>
+<img src="https://github.com/sakibmd/vuejs-laravel-blog/blob/master/screenshots/categorywise.png" alt="category wise post">
 
 ## Contributing
 
